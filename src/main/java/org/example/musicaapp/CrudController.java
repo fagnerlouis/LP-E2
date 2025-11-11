@@ -86,7 +86,6 @@ public class CrudController {
             }
         });
 
-        // Carrega tudo
         onArmaRead(); onCidadeRead(); onPersRead();
     }
 
@@ -128,7 +127,6 @@ public class CrudController {
     }
     @FXML public void onArmaExecute() {
         try {
-            // Método “da E1” – ajuste o nome se o seu for diferente
             Arma a = new Arma(armaModelo.getText().trim(),
                     Integer.parseInt(armaQtd.getText().trim()),
                     armaDono.getText().trim());
@@ -137,9 +135,6 @@ public class CrudController {
         } catch (Exception e) { error(e); }
     }
     private String executarMetodoArma(Arma a) {
-        // EXEMPLO: se na E1 o método era "disparar()"
-        // return a.disparar();
-        // Placeholder didático:
         return "Arma \"" + a.getModelo() + "\" de " + a.getDono() + " disparou " + a.getQtdTiros() + " tiros.";
     }
 
@@ -230,12 +225,10 @@ public class CrudController {
         } catch (Exception e) { error(e); }
     }
     private String executarMetodoPersonagem(Personagem p) {
-        // EXEMPLO: se na E1 o método era "apresentar()"
-        // return p.apresentar();
         return (p.isVivo() ? "Vivo" : "Falecido") + " — " + p.getNome() + " de " + p.getOrigem();
     }
 
-    /* ===== helpers ===== */
+    /* helpers */
     private <T> void selecionarLinhaPorId(TableView<T> tv, long id) {
         if (tv == null || tv.getItems() == null) return;
         for (int i = 0; i < tv.getItems().size(); i++) {
